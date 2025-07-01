@@ -278,17 +278,39 @@
             padding-top: 2rem;
         }
 
+        .status-badges {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+        }
+
         .status-badge {
             display: inline-block;
-            background-color: rgba(0, 0, 0, 0.8);
-            color: #fff;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.875rem;
-            margin-bottom: 2rem;
-            font-weight: 500;
             font-family: 'IBM Plex Mono', 'Courier New', monospace;
+            font-weight: 500;
             letter-spacing: 0.02em;
+            cursor: default;
+        }
+
+        .status-badge.small {
+            background-color: #f0f0f0;
+            color: #333;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        .status-badge.large {
+            background-color: rgba(0, 0, 0, 0.85);
+            color: #fff;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            max-width: 400px;
+            text-align: center;
+            line-height: 1.4;
         }
 
         .main-title {
@@ -612,6 +634,10 @@
     <div class="container">
         <!-- Header Section -->
         <header class="header">
+            <div class="status-badges">
+                <span class="status-badge small">wee update</span>
+                <span class="status-badge large">I'm on extended sabbatical, and not seeking new opportunities.</span>
+            </div>
             <h1 class="main-title">Hello, I'm Grish.</h1>
             <p class="experience">I have experience as a copywriter, content editor, video editor, AI voice model trainer, and program developer. I mostly find myself in tech and marketing related positions.</p>
             <p class="values">I specialize in creating engaging content, managing events, and developing digital solutions. My diverse skill set allows me to adapt to various roles and deliver comprehensive results.</p>
