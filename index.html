@@ -399,6 +399,41 @@
             }
         }
 
+        @keyframes floatContact {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            }
+            33% {
+                transform: translateY(-1px) rotate(0.4deg);
+                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+            }
+            66% {
+                transform: translateY(-2px) rotate(-0.2deg);
+                box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            }
+        }
+
+        /* Footer Name */
+        .name-footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding-bottom: 2rem;
+        }
+
+        .footer-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #333;
+            opacity: 0.6;
+            transition: opacity 0.3s ease;
+        }
+
+        .footer-name:hover {
+            opacity: 0.8;
+        }
+
         .main-title {
             font-family: 'Playfair Display', 'Georgia', serif;
             font-size: clamp(2rem, 4vw, 3rem);
@@ -546,13 +581,18 @@
             padding: 0.75rem 1.5rem;
             border: 2px solid #333;
             border-radius: 25px;
-            transition: all 0.3s ease;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateY(0);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            animation: floatContact 5s ease-in-out infinite;
         }
 
         .contact-link:hover {
             background-color: #333;
             color: #fff;
-            transform: translateY(-2px);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
         }
 
         /* Portfolio Dropdown */
@@ -800,6 +840,11 @@
                 <a href="services.html" class="contact-link">Services</a>
             </div>
         </footer>
+
+        <!-- Footer with Name -->
+        <div class="name-footer">
+            <span class="footer-name">Grish Acharya</span>
+        </div>
     </div>
 
     <!-- Interactive Stick Pattern -->
