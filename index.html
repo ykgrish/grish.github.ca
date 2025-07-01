@@ -420,147 +420,21 @@
             font-weight: 900;
             color: #333;
             opacity: 0.7;
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex;
             flex-direction: column;
             align-items: flex-end;
             line-height: 0.9;
             position: relative;
-            cursor: pointer;
-            animation: nameFloat 6s ease-in-out infinite;
+            cursor: default;
         }
 
-        .footer-name::before {
-            content: '';
-            position: absolute;
-            top: -20px;
-            left: -20px;
-            right: -20px;
-            bottom: -20px;
-            background: radial-gradient(circle at 80% 60%, 
-                rgba(255, 69, 0, 0.08) 0%, 
-                rgba(255, 140, 0, 0.06) 25%, 
-                rgba(255, 165, 0, 0.08) 50%, 
-                rgba(255, 215, 0, 0.05) 75%, 
-                transparent 100%);
-            border-radius: 50%;
-            opacity: 0;
-            z-index: -1;
-            transition: opacity 0.6s ease;
-            animation: auraRotate 8s linear infinite;
-        }
 
-        .footer-name::after {
-            content: '';
-            position: absolute;
-            top: -30px;
-            left: -30px;
-            right: -30px;
-            bottom: -30px;
-            background: conic-gradient(from 0deg at 70% 50%, 
-                rgba(255, 69, 0, 0.1), 
-                rgba(255, 140, 0, 0.05), 
-                rgba(255, 165, 0, 0.1), 
-                rgba(255, 215, 0, 0.05),
-                rgba(255, 20, 147, 0.08),
-                rgba(255, 69, 0, 0.1));
-            mask: radial-gradient(circle, transparent 65%, black 67%, black 75%, transparent 77%);
-            opacity: 0;
-            z-index: -2;
-            animation: spiralGlow 10s linear infinite;
-        }
-
-        .footer-name:hover {
-            opacity: 1;
-            transform: scale(1.1) translateY(-5px);
-            text-shadow: 
-                0 0 20px rgba(255, 140, 0, 0.4),
-                0 0 40px rgba(255, 165, 0, 0.3),
-                0 0 60px rgba(255, 215, 0, 0.2);
-        }
-
-        .footer-name:hover::before {
-            opacity: 1;
-            animation: auraRotate 4s linear infinite, auraPulse 2s ease-in-out infinite;
-        }
-
-        .footer-name:hover::after {
-            opacity: 1;
-            animation: spiralGlow 5s linear infinite, spiralPulse 3s ease-in-out infinite;
-        }
 
         .name-line {
             display: block;
-            transform: translateX(0);
-            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .footer-name:hover .name-line:nth-child(1) {
-            transform: translateX(-5px);
-        }
 
-        .footer-name:hover .name-line:nth-child(2) {
-            transform: translateX(5px);
-        }
-
-        @keyframes nameFloat {
-            0%, 100% {
-                transform: translateY(0) rotate(0deg);
-            }
-            25% {
-                transform: translateY(-3px) rotate(0.5deg);
-            }
-            50% {
-                transform: translateY(-6px) rotate(0deg);
-            }
-            75% {
-                transform: translateY(-3px) rotate(-0.5deg);
-            }
-        }
-
-        @keyframes auraRotate {
-            0% {
-                transform: rotate(0deg) scale(1);
-            }
-            100% {
-                transform: rotate(360deg) scale(1);
-            }
-        }
-
-        @keyframes auraPulse {
-            0%, 100% {
-                transform: rotate(0deg) scale(1);
-                opacity: 0.6;
-            }
-            50% {
-                transform: rotate(180deg) scale(1.2);
-                opacity: 1;
-            }
-        }
-
-        @keyframes spiralGlow {
-            0% {
-                transform: rotate(0deg) scale(1);
-            }
-            100% {
-                transform: rotate(-360deg) scale(1);
-            }
-        }
-
-        @keyframes spiralPulse {
-            0%, 100% {
-                transform: rotate(0deg) scale(1);
-                opacity: 0.8;
-            }
-            33% {
-                transform: rotate(-120deg) scale(1.1);
-                opacity: 1;
-            }
-            66% {
-                transform: rotate(-240deg) scale(0.9);
-                opacity: 0.6;
-            }
-        }
 
         .main-title {
             font-family: 'Playfair Display', 'Georgia', serif;
