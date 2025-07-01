@@ -143,11 +143,90 @@
             color: #333;
             z-index: 100;
             opacity: 0.8;
-            transition: opacity 0.3s ease;
+            transition: all 0.3s ease;
+            transform-origin: center;
         }
 
         .site-logo:hover {
             opacity: 1;
+        }
+
+        /* Scroll-triggered animation states */
+        .site-logo.scrolled {
+            animation: logoGlow 2s ease-in-out infinite alternate;
+            transform: scale(1.1);
+        }
+
+        .site-logo::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 69, 0, 0.2) 0%, rgba(255, 140, 0, 0.15) 30%, rgba(255, 165, 0, 0.1) 60%, transparent 100%);
+            opacity: 0;
+            z-index: -1;
+            transition: opacity 0.5s ease;
+            animation: none;
+        }
+
+        .site-logo.scrolled::before {
+            opacity: 1;
+            animation: pulseGlow 3s ease-in-out infinite;
+        }
+
+        .site-logo::after {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            right: -15px;
+            bottom: -15px;
+            border: 2px solid transparent;
+            border-radius: 50%;
+            background: conic-gradient(from 0deg, rgba(255, 69, 0, 0.3), rgba(255, 140, 0, 0.2), rgba(255, 165, 0, 0.3), rgba(255, 215, 0, 0.2), rgba(255, 69, 0, 0.3));
+            mask: radial-gradient(circle, transparent 70%, black 72%, black 74%, transparent 76%);
+            opacity: 0;
+            z-index: -1;
+            transition: opacity 0.5s ease;
+        }
+
+        .site-logo.scrolled::after {
+            opacity: 1;
+            animation: rotateRing 4s linear infinite;
+        }
+
+        @keyframes logoGlow {
+            0% {
+                text-shadow: 0 0 5px rgba(255, 69, 0, 0.3);
+                transform: scale(1.1);
+            }
+            100% {
+                text-shadow: 0 0 15px rgba(255, 140, 0, 0.6), 0 0 25px rgba(255, 165, 0, 0.4);
+                transform: scale(1.15);
+            }
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 0.3;
+            }
+            50% {
+                transform: scale(1.2);
+                opacity: 0.6;
+            }
+        }
+
+        @keyframes rotateRing {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
         }
 
         /* Container and Layout */
@@ -672,6 +751,21 @@
         
         // Initialize the pattern when page loads
         document.addEventListener('DOMContentLoaded', createStickPattern);
+        
+        // Scroll-triggered logo animation
+        function handleLogoScroll() {
+            const logo = document.querySelector('.site-logo');
+            const scrollThreshold = 100; // Trigger after 100px of scroll
+            
+            if (window.scrollY > scrollThreshold) {
+                logo.classList.add('scrolled');
+            } else {
+                logo.classList.remove('scrolled');
+            }
+        }
+        
+        // Add scroll listener
+        window.addEventListener('scroll', handleLogoScroll);
     </script>
 </body>
 </html>
