@@ -282,8 +282,8 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 0.75rem;
             margin-bottom: 2rem;
+            position: relative;
         }
 
         .status-badge {
@@ -295,11 +295,31 @@
         }
 
         .status-badge.small {
-            background-color: #f0f0f0;
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
             color: #333;
-            padding: 0.4rem 1rem;
+            padding: 0.5rem 1.2rem;
             border-radius: 20px;
             font-size: 0.8rem;
+            box-shadow: 
+                0 4px 15px rgba(0, 0, 0, 0.1),
+                0 2px 8px rgba(0, 0, 0, 0.06),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            margin-top: -8px;
+            position: relative;
+            z-index: 2;
+            transform: translateY(0);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: floatGlow 4s ease-in-out infinite;
+        }
+
+        .status-badge.small:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 
+                0 8px 25px rgba(0, 0, 0, 0.15),
+                0 4px 12px rgba(0, 0, 0, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.9);
+            background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%);
         }
 
         .status-badge.large {
@@ -311,6 +331,43 @@
             max-width: 400px;
             text-align: center;
             line-height: 1.4;
+            position: relative;
+            z-index: 1;
+        }
+
+        @keyframes floatGlow {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+                box-shadow: 
+                    0 4px 15px rgba(0, 0, 0, 0.1),
+                    0 2px 8px rgba(0, 0, 0, 0.06),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.8),
+                    0 0 0 rgba(255, 255, 255, 0);
+            }
+            25% {
+                transform: translateY(-1px) rotate(0.5deg);
+                box-shadow: 
+                    0 6px 20px rgba(0, 0, 0, 0.12),
+                    0 3px 10px rgba(0, 0, 0, 0.08),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+                    0 0 15px rgba(255, 255, 255, 0.3);
+            }
+            50% {
+                transform: translateY(-2px) rotate(0deg);
+                box-shadow: 
+                    0 8px 25px rgba(0, 0, 0, 0.15),
+                    0 4px 12px rgba(0, 0, 0, 0.1),
+                    inset 0 1px 0 rgba(255, 255, 255, 1),
+                    0 0 20px rgba(255, 255, 255, 0.4);
+            }
+            75% {
+                transform: translateY(-1px) rotate(-0.5deg);
+                box-shadow: 
+                    0 6px 20px rgba(0, 0, 0, 0.12),
+                    0 3px 10px rgba(0, 0, 0, 0.08),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+                    0 0 15px rgba(255, 255, 255, 0.3);
+            }
         }
 
         .main-title {
@@ -635,8 +692,8 @@
         <!-- Header Section -->
         <header class="header">
             <div class="status-badges">
-                <span class="status-badge small">wee update</span>
                 <span class="status-badge large">I'm on extended sabbatical, and not seeking new opportunities.</span>
+                <span class="status-badge small">wee update</span>
             </div>
             <h1 class="main-title">Hello, I'm Grish.</h1>
             <p class="experience">I have experience as a copywriter, content editor, video editor, AI voice model trainer, and program developer. I mostly find myself in tech and marketing related positions.</p>
