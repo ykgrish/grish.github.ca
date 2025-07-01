@@ -448,11 +448,11 @@
 
         /* Interactive Stick Pattern */
         .stick-pattern {
-            position: fixed;
+            position: absolute;
             top: 15%;
             right: 5%;
-            width: 400px;
-            height: 500px;
+            width: 320px;
+            height: 400px;
             z-index: 10;
             pointer-events: none;
         }
@@ -587,9 +587,9 @@
         // Create interactive stick pattern
         function createStickPattern() {
             const container = document.getElementById('stickPattern');
-            const rows = 12;
-            const cols = 9;
-            const stickSpacing = 40;
+            const rows = 10;
+            const cols = 8;
+            const stickSpacing = 35;
             
             for (let row = 0; row < rows; row++) {
                 for (let col = 0; col < cols; col++) {
